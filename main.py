@@ -94,7 +94,7 @@ def force(bot , msg):
     cr.edit(f"**Current Force Join Set to {st}🦊**")
 @app.on_callback_query() 
 async def call(bot,msg):
-    await msg.message.reply("**Just send your full name and you should have to be from Hru Section 15 **")
+    await msg.message.reply("**Just send your full name and wait for a while.\n\nif you want to download contens from the channel you can purchase for it**")
     
     
 @app.on_message(filters.private & filters.command("start"))
@@ -110,7 +110,7 @@ async def start(bot, msg):
     else:
       pass
     markup = InlineKeyboardMarkup([[channel, group], [help],[pro]])
-    await msg.reply(f"**Hello {username} this is F+ Channel__(the kanged version of the A+ Tutorial Paid private Channel )__ registration Bot\n\nalso Check out our [AI Question Answering Bot](t.me/chatgtp_probot)**",
+    await msg.reply(f"**Hello {username} this is F+ Channel __(the kanged version of the A+ Tutorial Paid private Channel)__ registration Bot\n\nalso Check out our [AI Question Answering Bot](t.me/chatgtp_probot)**",
     reply_markup= markup ,disable_web_page_preview = True)    
     
     
