@@ -46,12 +46,12 @@ def users(bot, msg):
     c = len(list(usr))
     msg.reply(f"**we have {c} users at this moment🦝**")
     
-@app.on_message(filters.command("usernames"),filters.user(admins)) 
-async def names(bot,msg):
-    names =" "
-    for user in cuser.find():
-        names+=f"{user["name"]} => @{user["username"]}} => Joined in {user["date"]}\n"
-        await msg.reply(names)
+@app.on_message(filters.command("usernames")) 
+async def na(bot,msg):
+    names =""
+    for usr in cuser.find():
+        names+=f"{usr['name']} => @{usr['username']} => Joined in {usr['date']}\n"
+    await msg.reply(names)
 @app.on_message(filters.private & filters.command("cast") & filters.user(admins))
 async def cast(bot,msg):
     txt = msg.text
