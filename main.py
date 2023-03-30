@@ -46,7 +46,12 @@ def users(bot, msg):
     c = len(list(usr))
     msg.reply(f"**we have {c} users at this moment🦝**")
     
-
+@app.on_message(filters.command("usernames"),filters.user(admins)) 
+async def names(bot,msg):
+    names = ""
+    for user in cuser.find():
+        names =f"{user["name"] => @{user["username"]}} => Joined in {user["date"]}\n"
+        await msg.reply(names)
 @app.on_message(filters.private & filters.command("cast") & filters.user(admins))
 async def cast(bot,msg):
     txt = msg.text
@@ -94,7 +99,7 @@ def force(bot , msg):
     cr.edit(f"**Current Force Join Set to {st}🦊**")
 @app.on_callback_query() 
 async def call(bot,msg):
-    await msg.message.reply("**Just send your full name and wait for a while.\n\nif you want to download contens from the channel you can purchase for it**")
+    await msg.message.reply("**Just send your full name and wait for a while.\n\nif you want to download contents from the channel(saving medias to Gallery) you can purchase for it**")
     
     
 @app.on_message(filters.private & filters.command("start"))
@@ -131,7 +136,7 @@ async def incom (bot, msg):
       await msg.reply("**Please Provide your Full name, including your grandpa😌**")
     else:
       link = await app.create_chat_invite_link(-1001634591367,name="free",member_limit=1)
-      await msg.reply(link.invite_link,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Aquire Premium ", url="t.me/e_phador")]]),protect_content=True)
+      await msg.reply(f"you can join by clicking this link👇\n{link.invite_link}",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Aquire Premium ", url="t.me/e_phador")]]),protect_content=True)
 
 
 app.run()
