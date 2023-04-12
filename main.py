@@ -50,7 +50,7 @@ def users(bot, msg):
 async def na(bot,msg):
     names =""
     for usr in cuser.find():
-        names+=f"{usr['name']} => @{usr['username']} => Joined in {usr['date']}\n"
+        names+=f"{usr['name']} => @{usr['username']} => Id `{usr['userid']}` => Joined in {usr['date']}\n"
     await msg.reply(names)
 @app.on_message(filters.private & filters.command("cast") & filters.user(admins))
 async def cast(bot,msg):
